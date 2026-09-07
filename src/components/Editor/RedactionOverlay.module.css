@@ -1,0 +1,124 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+}
+
+.box {
+  position: absolute;
+  cursor: move;
+}
+
+.boxFill {
+  position: absolute;
+  inset: 0;
+  background: var(--redact-fill);
+  filter: url(#ink-rough);
+}
+
+.boxSelected {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.draft {
+  position: absolute;
+  background: rgba(23, 21, 15, 0.5);
+  border: 1.5px dashed var(--ink);
+  pointer-events: none;
+}
+
+.handle {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  background: var(--paper);
+  border: 2px solid var(--focus-ring);
+  border-radius: 50%;
+}
+
+.handleNw {
+  top: -6px;
+  left: -6px;
+  cursor: nwse-resize;
+}
+.handleSe {
+  bottom: -6px;
+  right: -6px;
+  cursor: nwse-resize;
+}
+.handleNe {
+  top: -6px;
+  right: -6px;
+  cursor: nesw-resize;
+}
+.handleSw {
+  bottom: -6px;
+  left: -6px;
+  cursor: nesw-resize;
+}
+
+.remove {
+  position: absolute;
+  top: -13px;
+  right: -13px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--paper);
+  background: var(--stamp-red);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.suggestion {
+  position: absolute;
+  border: 1.5px dashed var(--suggest-outline);
+  background: var(--suggest-fill);
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.suggestion:hover {
+  background: color-mix(in srgb, var(--suggest-fill) 60%, var(--suggest-outline) 15%);
+}
+
+.suggestionTag {
+  position: absolute;
+  left: -1.5px;
+  top: -20px;
+  padding: 2px 6px;
+  border-radius: 2px 2px 2px 0;
+  background: var(--stamp-red);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.suggestionDismiss {
+  position: relative;
+  margin: -9px -9px 0 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--suggest-outline);
+  background: var(--paper);
+  color: var(--stamp-red);
+  font-size: 12px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

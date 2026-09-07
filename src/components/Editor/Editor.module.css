@@ -1,0 +1,21 @@
+.shell {
+  height: 100svh;
+  display: grid;
+  grid-template-columns: var(--tray-width) 1fr var(--log-width);
+  grid-template-rows: var(--topbar-height) 1fr var(--toolbar-height);
+  grid-template-areas:
+    'top top top'
+    'tray canvas log'
+    'toolbar toolbar toolbar';
+  background: var(--paper);
+}
+
+@media (max-width: 860px) {
+  .shell {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'top'
+      'canvas'
+      'toolbar';
+  }
+}

@@ -1,0 +1,51 @@
+.viewport {
+  grid-area: canvas;
+  overflow: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px;
+  background: var(--paper-deep);
+  background-image: radial-gradient(var(--paper-line) 0.6px, transparent 0.6px);
+  background-size: 18px 18px;
+}
+
+.page {
+  position: relative;
+  flex: none;
+  background: #fff;
+  box-shadow: 0 2px 4px var(--canvas-shadow), 0 22px 40px -14px var(--canvas-shadow);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.skeleton {
+  width: 612px;
+  max-width: 100%;
+  height: 792px;
+  background: var(--surface);
+  border: 1px solid var(--paper-line);
+  animation: pulse 1.3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}

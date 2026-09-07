@@ -1,0 +1,103 @@
+.bar {
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--paper-line);
+  background: var(--surface);
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--ink);
+  flex: none;
+}
+
+.wordmarkBar {
+  width: 16px;
+  height: 7px;
+  border-radius: 1px;
+  background: var(--ink);
+  filter: url(#ink-rough);
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  background: var(--paper-line);
+  flex: none;
+}
+
+.fileInfo {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+}
+
+.stamp {
+  font-family: var(--font-stamp);
+  font-size: var(--text-xs);
+  color: var(--stamp-red);
+  white-space: nowrap;
+}
+
+.ghostButton {
+  appearance: none;
+  border: 1px solid var(--paper-line);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.ghostButton:hover {
+  border-color: var(--ink-faint);
+  color: var(--ink);
+}
+
+.primaryButton {
+  appearance: none;
+  border: none;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.primaryButton:hover {
+  opacity: 0.88;
+}
+
+.primaryButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
