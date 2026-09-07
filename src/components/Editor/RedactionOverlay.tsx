@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import { useDocumentStore } from '../../store/useDocumentStore';
 import { boxToScreen, screenToBox, normalizeRect, type ScreenRect } from '../../lib/geometry';
+import { EMPTY_ARRAY } from '../../lib/emptyArray';
 import type { Box } from '../../lib/types';
 import styles from './RedactionOverlay.module.css';
 
@@ -29,8 +30,8 @@ interface Props {
 }
 
 export default function RedactionOverlay({ pageNumber, zoom, baseHeight }: Props) {
-  const redactions = useDocumentStore((s) => s.redactions[pageNumber] ?? []);
-  const suggestions = useDocumentStore((s) => s.suggestions[pageNumber] ?? []);
+  const redactions = useDocumentStore((s) => s.redactions[pageNumber] ?? EMPTY_ARRAY);
+  const suggestions = useDocumentStore((s) => s.suggestions[pageNumber] ?? EMPTY_ARRAY);
   const selectedId = useDocumentStore((s) => s.selectedId);
   const setSelected = useDocumentStore((s) => s.setSelected);
   const addRedaction = useDocumentStore((s) => s.addRedaction);
@@ -155,7 +156,7 @@ export default function RedactionOverlay({ pageNumber, zoom, baseHeight }: Props
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [pageNumber, redactions, removeRedaction, selectedId, setSelected, snapshot]);
 
-  const onContainerPointerDown = (e: React.PointerEvent) => {
+  const onContainerPointerDown = (e: ReactPointerEvent) => {
     if (e.target !== containerRef.current) return;
     e.preventDefault();
     setSelected(null);
@@ -164,7 +165,7 @@ export default function RedactionOverlay({ pageNumber, zoom, baseHeight }: Props
     beginDrag({ kind: 'draw', startX: x, startY: y });
   };
 
-  const onBoxPointerDown = (e: React.PointerEvent, r: Box & { id: string }) => {
+  const onBoxPointerDown = (e: ReactPointerEvent, r: Box & { id: string }) => {
     e.stopPropagation();
     e.preventDefault();
     setSelected(r.id);
@@ -173,7 +174,7 @@ export default function RedactionOverlay({ pageNumber, zoom, baseHeight }: Props
     beginDrag({ kind: 'move', id: r.id, startBox: r, startX: x, startY: y });
   };
 
-  const onHandlePointerDown = (e: React.PointerEvent, r: Box & { id: string }, corner: Corner) => {
+  const onHandlePointerDown = (e: ReactPointerEvent, r: Box & { id: string }, corner: Corner) => {
     e.stopPropagation();
     e.preventDefault();
     snapshot();

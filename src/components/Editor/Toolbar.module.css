@@ -1,0 +1,68 @@
+.bar {
+  grid-area: toolbar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 20px;
+  border-top: 1px solid var(--paper-line);
+  background: var(--surface);
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.iconButton {
+  appearance: none;
+  border: 1px solid var(--paper-line);
+  background: var(--paper);
+  color: var(--ink);
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.iconButton:hover:not(:disabled) {
+  border-color: var(--ink-faint);
+}
+
+.iconButton:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.zoomValue,
+.pageValue {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-soft);
+  white-space: nowrap;
+  min-width: 5.5em;
+  text-align: center;
+}
+
+.scanning {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--stamp-red);
+}
+
+@media (max-width: 640px) {
+  .bar {
+    gap: 8px;
+    padding: 0 10px;
+  }
+  .zoomValue {
+    display: none;
+  }
+}

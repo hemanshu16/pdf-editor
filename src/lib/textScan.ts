@@ -1,16 +1,12 @@
 import type { PDFPageProxy } from 'pdfjs-dist';
+import type { TextItem, TextMarkedContent } from 'pdfjs-dist/types/src/display/api';
 import { findSensitiveSpans } from './sensitivePatterns';
 import type { Box } from './types';
 
-interface RawTextItem {
-  str: string;
-  transform: number[];
-  width: number;
-  height: number;
-}
+type RawTextItem = TextItem;
 
-function hasStr(item: unknown): item is RawTextItem {
-  return typeof item === 'object' && item !== null && 'str' in item && 'transform' in item;
+function hasStr(item: TextItem | TextMarkedContent): item is RawTextItem {
+  return typeof (item as TextItem).str === 'string';
 }
 
 interface PositionedItem {

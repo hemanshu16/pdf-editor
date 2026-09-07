@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState, type DragEvent } from 'react';
 import { useDocumentStore } from '../../store/useDocumentStore';
 import DocumentMark from './DocumentMark';
 import styles from './UploadScreen.module.css';
@@ -44,7 +44,7 @@ export default function UploadScreen() {
   );
 
   const onDrop = useCallback(
-    (e: React.DragEvent<HTMLDivElement>) => {
+    (e: DragEvent<HTMLDivElement>) => {
       e.preventDefault();
       setIsDragging(false);
       handleFile(e.dataTransfer.files[0]);
