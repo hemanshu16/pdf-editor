@@ -6,8 +6,6 @@
   justify-content: center;
   padding: 40px;
   background: var(--paper-deep);
-  background-image: radial-gradient(var(--paper-line) 0.6px, transparent 0.6px);
-  background-size: 18px 18px;
 }
 
 .page {

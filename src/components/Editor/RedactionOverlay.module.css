@@ -25,7 +25,7 @@
 
 .draft {
   position: absolute;
-  background: rgba(23, 21, 15, 0.5);
+  background: rgba(18, 18, 18, 0.45);
   border: 1.5px dashed var(--ink);
   pointer-events: none;
 }
